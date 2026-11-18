@@ -2,6 +2,8 @@ import { prayers, mysteries, verses } from './prayers.js';
 
 const $ = (selector) => document.querySelector(selector);
 const icons = {
+  flame: '<path d="M12 22a7 7 0 0 0 7-7c0-4-3-6-4-8-.5 2-1.5 3-2.5 3C13 6 11 4 10 2c0 5-5 8-5 13a7 7 0 0 0 7 7Z"/><path d="M12 22a3 3 0 0 0 3-3c0-2-2-3-3-5-1 2-3 3-3 5a3 3 0 0 0 3 3Z"/>',
+  check: '<path d="m5 12 4 4L19 6"/>',
   cross: '<path d="M12 3v18M6 9h12"/>',
   home: '<path d="m3 10 9-7 9 7v10H3zM9 20v-6h6v6"/>',
   book: '<path d="M12 6C9 4 6 4 3 5v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1zm0 0v14"/>',
@@ -65,6 +67,59 @@ const dateFormat = new Intl.DateTimeFormat('es', { weekday: 'long', day: 'numeri
 function localDate(date) {
   return [date.getFullYear(), String(date.getMonth() + 1).padStart(2, '0'), String(date.getDate()).padStart(2, '0')].join('-');
 }
+const streakMark = $('#streak-mark');
+const shortWeekday = new Intl.DateTimeFormat('es', { weekday: 'short' });
+const dayNumber = (date) => Date.parse(date) / 86400000;
+
+function renderStreak(now) {
+  const today = localDate(now);
+  const history = new Set(read('prayerDays', []));
+  const todayNumber = dayNumber(today);
+  const recordedDays = [...history].map(dayNumber).filter((day) => day <= todayNumber).sort((a, b) => a - b);
+  let best = 0;
+  let run = 0;
+  let previous;
+  for (const day of recordedDays) {
+    run = day === previous + 1 ? run + 1 : 1;
+    best = Math.max(best, run);
+    previous = day;
+  }
+  const current = previous >= todayNumber - 1 ? run : 0;
+  $('#streak-current').textContent = current + (current === 1 ? ' día seguido' : ' días seguidos');
+  $('#streak-best').textContent = 'Mejor racha: ' + best + (best === 1 ? ' día' : ' días');
+
+  const recent = Array.from({ length: 7 }, (_, index) => {
+    const date = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 6 + index, 12);
+    const prayed = history.has(localDate(date));
+    const item = document.createElement('li');
+    const symbol = document.createElement('span');
+    symbol.className = 'streak-day';
+    symbol.setAttribute('aria-hidden', 'true');
+    if (prayed) symbol.innerHTML = icon('check');
+    else symbol.textContent = date.getDate();
+    item.classList.toggle('prayed', prayed);
+    item.classList.toggle('today', index === 6);
+    item.setAttribute('aria-label', dateFormat.format(date) + (prayed ? ', oración registrada' : ', sin registro'));
+    item.append(shortWeekday.format(date).replace('.', ''), symbol);
+    return item;
+  });
+  $('#streak-week').replaceChildren(...recent);
+  streakMark.disabled = history.has(today);
+  streakMark.innerHTML = icon('check') + (streakMark.disabled ? ' Hoy ya has rezado' : ' Marcar hoy como rezado');
+}
+
+function recordPrayer(date = new Date()) {
+  const day = localDate(date);
+  const history = read('prayerDays', []);
+  if (!history.includes(day)) save('prayerDays', [...history, day]);
+  renderStreak(new Date());
+}
+
+streakMark.addEventListener('click', () => recordPrayer());
+window.addEventListener('storage', (event) => {
+  if (event.key === 'ora.prayerDays' || event.key === null) renderStreak(new Date());
+});
+
 function renderDay(now) {
   const day = localDate(now);
   if ($('#today').dateTime === day) return;
@@ -73,6 +128,7 @@ function renderDay(now) {
   const [verse, reference] = verses[now.getDay()];
   $('#verse').textContent = '«' + verse + '»';
   $('#verse-ref').textContent = reference;
+  renderStreak(now);
 }
 
 const clock = $('#clock');
@@ -85,7 +141,8 @@ const durationButtons = [...document.querySelectorAll('[data-duration]')];
 
 function renderTimer() {
   let seconds = elapsed + (startedAt === null ? 0 : (Date.now() - startedAt) / 1000);
-  if (duration && seconds >= duration && !completed) {
+  if (startedAt !== null && duration && seconds >= duration) {
+    recordPrayer(new Date(startedAt + (duration - elapsed) * 1000));
     elapsed = seconds = duration;
     startedAt = null;
     completed = true;
@@ -185,6 +242,7 @@ function renderRosary() {
   $('#bead-prayer').textContent = step ? prayerText(step[0]) : '';
   $('#bead-prev').disabled = rosary.step === 0;
   $('#bead-next').disabled = !step;
+  $('#bead-next').dataset.last = rosary.step === steps.length - 1;
   $('#bead-next').textContent = rosary.step === steps.length - 1 ? 'Terminar Rosario' : 'Siguiente cuenta';
 }
 function updateRosary(step) {
@@ -194,7 +252,11 @@ function updateRosary(step) {
 }
 mysterySelect.addEventListener('change', () => updateRosary(0));
 $('#bead-prev').addEventListener('click', () => updateRosary(rosary.step - 1));
-$('#bead-next').addEventListener('click', () => updateRosary(rosary.step + 1));
+$('#bead-next').addEventListener('click', (event) => {
+  const finishing = event.currentTarget.dataset.last === 'true';
+  updateRosary(rosary.step + 1);
+  if (finishing) recordPrayer();
+});
 $('#bead-reset').addEventListener('click', () => updateRosary(0));
 renderRosary();
 

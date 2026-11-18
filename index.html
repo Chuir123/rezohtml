@@ -9,8 +9,8 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./assets/icon-192.png">
 <link rel="apple-touch-icon" href="./assets/icon-192.png">
-<link rel="stylesheet" href="./style.css">
-<script type="module" src="./app.js"></script>
+<link rel="stylesheet" href="./style.css?v=3">
+<script type="module" src="./app.js?v=3"></script>
 </head>
 <body>
 <header class="top"><div class="shell top-inner">
@@ -50,6 +50,12 @@
 <a class="text-link" href="#oraciones">Ver todas las oraciones <i data-icon="arrow"></i></a>
 </section>
 </div>
+<section class="card streak" aria-labelledby="streak-title">
+<div class="card-heading"><span class="tile-icon gold" data-icon="flame"></span><div><h2 id="streak-title">Racha de oración</h2><p>Un día cuenta una sola vez.</p></div></div>
+<div class="streak-summary" role="status"><strong id="streak-current">0 días seguidos</strong><span id="streak-best">Mejor racha: 0 días</span></div>
+<ul id="streak-week" aria-label="Últimos siete días"></ul>
+<button type="button" class="secondary" id="streak-mark"><i data-icon="check"></i> Marcar hoy como rezado</button>
+</section>
 <div class="extras">
 <a class="card feature" href="#rosario"><span class="tile-icon gold" data-icon="rosary"></span><div><h2>Santo Rosario</h2><p>Misterios del día y contador de cuentas.</p></div><i data-icon="chevron"></i></a>
 <a class="card feature" href="#intenciones"><span class="tile-icon blue" data-icon="heart"></span><div><h2>Mis intenciones</h2><p>Recuerda por quién quieres rezar.</p></div><i data-icon="chevron"></i></a>

@@ -92,3 +92,20 @@ main{padding-top:24px;padding-bottom:calc(62px + env(safe-area-inset-bottom))}.d
   .timer-actions{margin-top:10px}
   .hero{background-image:linear-gradient(90deg,#14151cf5 0%,#14151cdd 36%,#14151c55 72%,#14151c15 100%),url('./altar.webp')}
 }
+
+.streak{margin-top:20px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:14px 24px}
+.streak-summary{display:grid;text-align:right}
+.streak-summary strong{font:500 25px/1.15 var(--serif);color:var(--gold)}
+.streak-summary span{color:var(--muted);font-size:13px}
+#streak-week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;max-width:440px;list-style:none;padding:0;margin:0}
+#streak-week li{display:grid;justify-items:center;gap:4px;color:var(--muted);font-size:12px;text-transform:capitalize}
+.streak-day{display:grid;place-items:center;width:32px;height:32px;border:1px solid var(--line);border-radius:50%;font-variant-numeric:tabular-nums}
+.prayed .streak-day{color:var(--gold);background:#352c24;border-color:#705739}
+.today .streak-day{border-color:var(--gold)}
+#streak-mark{justify-self:end}
+#streak-mark:disabled{opacity:1;color:var(--gold)}
+@media(max-width:600px){
+  .streak{margin-top:13px;grid-template-columns:1fr}
+  .streak-summary{text-align:left}
+  #streak-mark{justify-self:start}
+}

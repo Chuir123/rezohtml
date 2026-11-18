@@ -1,5 +1,5 @@
-const CACHE = 'ora-v2';
-const FILES = ['./', './index.html', './style.css', './app.js', './prayers.js', './altar.webp',
+const CACHE = 'ora-v3';
+const FILES = ['./', './index.html', './style.css?v=3', './app.js?v=3', './prayers.js', './altar.webp',
   './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png'];
 
 self.addEventListener('install', (event) => {
@@ -17,7 +17,7 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(fetch(request).catch(() => caches.match('./index.html')));
     return;
   }
-  event.respondWith(caches.match(request).then((response) => response || fetch(request)));
+  event.respondWith(caches.open(CACHE).then((cache) => cache.match(request)).then((response) => response || fetch(request)));
 });
 self.addEventListener('notificationclick', (event) => {
   event.notification.close();

@@ -19,3 +19,7 @@ En GitHub, activa **Settings → Pages → Build and deployment → Source → G
 Para probar en el ordenador, ejecuta `python3 -m http.server 8000` desde esta carpeta y abre `http://localhost:8000`. También puedes descargar el código con **Code → Download ZIP**. No hay dependencias de ejecución ni compilación.
 
 Las oraciones son fórmulas católicas tradicionales en español. Las citas para la portada proceden de Reina-Valera 1909, de dominio público. La guía del examen de conciencia es una pauta breve redactada para Ora.
+
+## Racha de oración
+
+En Inicio puedes marcar que has rezado hoy. Completar un temporizador de cuenta atrás o terminar el rosario también registra la oración. Cada fecha local cuenta una sola vez. Se muestran los últimos siete días, la racha actual y la mejor racha. Si aún no has registrado hoy, la racha de ayer sigue vigente hasta medianoche. El historial se guarda en el dispositivo.
