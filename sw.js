@@ -1,4 +1,4 @@
-const CACHE = 'ora-v1';
+const CACHE = 'ora-v2';
 const FILES = ['./', './index.html', './style.css', './app.js', './prayers.js', './altar.webp',
   './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png'];
 

@@ -8,7 +8,7 @@ button{cursor:pointer;color:inherit}
 button:disabled{opacity:.45;cursor:default}
 :focus-visible{outline:2px solid var(--gold);outline-offset:4px}
 i[data-icon],[data-icon]>svg{display:inline-flex;width:20px;height:20px;flex:none;vertical-align:middle}
-svg{width:100%;height:100%}
+svg{display:inline-block;width:20px;height:20px;flex:none}
 .shell{width:min(1120px,calc(100% - 64px));margin:auto}
 .top{border-bottom:1px solid #282f3b;background:#111722}
 .top-inner{display:flex;align-items:center;justify-content:space-between;min-height:78px;gap:22px}
@@ -30,7 +30,7 @@ h2{font:500 26px/1.16 var(--serif);letter-spacing:-.025em}
 .date{display:flex;align-items:center;gap:8px;color:var(--gold);font-size:12px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:9px;font-weight:700}
 .date i[data-icon]{width:15px;height:15px}
 .intro{color:var(--muted);font-size:16px;margin-top:10px;margin-bottom:25px}
-.hero{min-height:223px;display:flex;align-items:center;border:1px solid #40362f;border-radius:18px;padding:30px 38px;overflow:hidden;background:linear-gradient(90deg,#14151c 0%,#14151cee 24%,#14151c88 55%,#14151c00 90%),url('./altar.webp') right 51%/cover no-repeat,#251d1d}
+.hero{min-height:223px;display:flex;align-items:center;border:1px solid #40362f;border-radius:18px;padding:30px 38px;overflow:hidden;background:linear-gradient(90deg,#14151c 0%,#14151cee 24%,#14151c88 55%,#14151c00 90%),url('./altar.webp') right 32%/cover no-repeat,#251d1d}
 .hero>div{max-width:60%}
 .eyebrow{color:var(--gold);display:flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.15em;font-weight:800}
 .hero blockquote{font:italic clamp(24px,3.6vw,43px)/1.14 var(--serif);margin:12px 0}
@@ -87,3 +87,8 @@ nav a{justify-content:center;flex:1;max-width:150px;flex-direction:column;gap:3p
 main{padding-top:24px;padding-bottom:calc(62px + env(safe-area-inset-bottom))}.dashboard,.extras{grid-template-columns:1fr;gap:13px;margin-top:13px}.hero{min-height:194px;padding:20px;background-position:right center}.hero>div{max-width:72%}.card{padding:16px}.toast{bottom:calc(64px + env(safe-area-inset-bottom))}
 }
 @media(prefers-reduced-motion:no-preference){button,a{transition:background-color .16s,border-color .16s,color .16s}}
+@media(max-width:760px){
+  .timer-face{width:132px;height:132px;margin:13px auto 10px}
+  .timer-actions{margin-top:10px}
+  .hero{background-image:linear-gradient(90deg,#14151cf5 0%,#14151cdd 36%,#14151c55 72%,#14151c15 100%),url('./altar.webp')}
+}
