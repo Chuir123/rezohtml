@@ -1,5 +1,5 @@
-const CACHE = 'ora-v3';
-const FILES = ['./', './index.html', './style.css?v=3', './app.js?v=3', './prayers.js', './altar.webp',
+const CACHE = 'ora-v4';
+const FILES = ['./', './index.html', './style.css?v=4', './app.js?v=4', './prayers.js?v=4', './altar.webp',
   './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png'];
 
 self.addEventListener('install', (event) => {

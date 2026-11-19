@@ -109,3 +109,17 @@ main{padding-top:24px;padding-bottom:calc(62px + env(safe-area-inset-bottom))}.d
   .streak-summary{text-align:left}
   #streak-mark{justify-self:start}
 }
+
+.prayer-catalog{max-width:900px}
+.prayer-catalog+.prayer-catalog{margin-top:14px}
+#topics-title{font-size:21px;margin:18px 0 10px}
+#prayer-topics{display:flex;flex-wrap:wrap;gap:7px}
+#prayer-topics button{font-size:14px}
+#prayer-topics button[aria-pressed=true]{background:#352c24;border-color:#8d7353;color:var(--gold);font-weight:700}
+.library-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 12px}
+#library-count{color:var(--muted);font-size:13px}
+#library{margin-bottom:0}
+@media(max-width:600px){
+  #prayer-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  #prayer-topics button{padding-inline:6px}
+}

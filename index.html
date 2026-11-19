@@ -9,8 +9,8 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./assets/icon-192.png">
 <link rel="apple-touch-icon" href="./assets/icon-192.png">
-<link rel="stylesheet" href="./style.css?v=3">
-<script type="module" src="./app.js?v=3"></script>
+<link rel="stylesheet" href="./style.css?v=4">
+<script type="module" src="./app.js?v=4"></script>
 </head>
 <body>
 <header class="top"><div class="shell top-inner">
@@ -63,7 +63,16 @@
 </section>
 <section id="oraciones" data-page hidden>
 <h1>Oraciones<span>.</span></h1><p class="intro">Encuentra una oración para tu momento del día.</p>
-<div class="card interior"><label for="search">Buscar oración</label><input id="search" type="search" placeholder="P. ej. Ave María"><div class="prayer-list" id="library"></div></div>
+<div class="card prayer-catalog">
+<label for="search">Buscar oración</label>
+<input id="search" type="search" placeholder="P. ej. por mi hermana, examen o moto">
+<h2 id="topics-title">Temas de oración</h2>
+<div id="prayer-topics" role="group" aria-labelledby="topics-title"></div>
+</div>
+<section class="card prayer-catalog" aria-labelledby="library-title">
+<div class="library-heading"><h2 id="library-title">Todas las oraciones</h2><span id="library-count" role="status"></span></div>
+<div class="prayer-list" id="library"></div>
+</section>
 </section>
 <section id="rosario" data-page hidden>
 <h1>Santo Rosario<span>.</span></h1><p class="intro">Medita los misterios y avanza cuenta a cuenta.</p>

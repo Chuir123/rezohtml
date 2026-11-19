@@ -1,4 +1,4 @@
-import { prayers, mysteries, verses } from './prayers.js';
+import { prayers, mysteries, verses, prayerTopics } from './prayers.js?v=4';
 
 const $ = (selector) => document.querySelector(selector);
 const icons = {
@@ -206,13 +206,45 @@ function prayerButton(key) {
 }
 $('#quick-prayers').append(...['padre', 'ave', 'gloria', 'credo'].map(prayerButton));
 const normalize = (text) => text.toLocaleLowerCase('es').normalize('NFD').replace(/\p{Diacritic}/gu, '');
-function renderLibrary() {
-  const query = normalize($('#search').value.trim());
-  const results = Object.keys(prayers).filter((key) => normalize(prayers[key].slice(0, 2).join(' ')).includes(query));
-  $('#library').replaceChildren(...results.map(prayerButton));
-  if (!results.length) $('#library').textContent = 'No se encontraron oraciones.';
+const allPrayers = ['todas', 'Todas', Object.keys(prayers)];
+const topics = [allPrayers, ...prayerTopics];
+const topicButtons = $('#prayer-topics');
+const librarySearch = $('#search');
+let selectedTopic = allPrayers;
+
+for (const topic of topics) {
+  const [id, title] = topic;
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'secondary';
+  button.textContent = title;
+  button.setAttribute('aria-pressed', String(topic === selectedTopic));
+  button.setAttribute('aria-controls', 'library');
+  button.addEventListener('click', () => {
+    if (selectedTopic === topic) return;
+    topicButtons.querySelector('[aria-pressed="true"]').setAttribute('aria-pressed', 'false');
+    button.setAttribute('aria-pressed', 'true');
+    selectedTopic = topic;
+    renderLibrary();
+  });
+  button.dataset.topic = id;
+  topicButtons.append(button);
 }
-$('#search').addEventListener('input', renderLibrary);
+
+function renderLibrary() {
+  const [, title, keys] = selectedTopic;
+  const query = normalize(librarySearch.value.trim());
+  const results = keys.filter((key) => normalize(prayers[key].slice(0, 2).join(' ')).includes(query));
+  $('#library-title').textContent = selectedTopic === allPrayers ? 'Todas las oraciones' : title;
+  $('#library-count').textContent = results.length + (results.length === 1 ? ' oración' : ' oraciones');
+  $('#library').replaceChildren(...results.map(prayerButton));
+  if (!results.length) {
+    $('#library').textContent = selectedTopic === allPrayers
+      ? 'No se encontraron oraciones con esa búsqueda.'
+      : 'No se encontraron oraciones en este tema. Prueba con «Todas».';
+  }
+}
+librarySearch.addEventListener('input', renderLibrary);
 renderLibrary();
 
 const days = [3, 0, 2, 3, 1, 2, 0];

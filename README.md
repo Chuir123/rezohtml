@@ -23,3 +23,7 @@ Las oraciones son fórmulas católicas tradicionales en español. Las citas para
 ## Racha de oración
 
 En Inicio puedes marcar que has rezado hoy. Completar un temporizador de cuenta atrás o terminar el rosario también registra la oración. Cada fecha local cuenta una sola vez. Se muestran los últimos siete días, la racha actual y la mejor racha. Si aún no has registrado hoy, la racha de ayer sigue vigente hasta medianoche. El historial se guarda en el dispositivo.
+
+## Biblioteca de oraciones
+
+En **Oraciones** puedes buscar por título o tema y elegir un tema del submenú. Además de las fórmulas tradicionales, la biblioteca incluye plegarias redactadas para Ora sobre la familia, las relaciones, la salud, los estudios, el viaje y otros momentos cotidianos. La biblioteca está disponible sin conexión después de la primera visita.
