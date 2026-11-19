@@ -18,51 +18,40 @@ export const mysteries = [
   ['La resurrección de Jesús', 'La ascensión de Jesús al cielo', 'La venida del Espíritu Santo', 'La Asunción de María', 'La coronación de María']
 ];
 
-// Citas de la Reina-Valera 1909, de dominio público.
-export const verses = [
-  ['Jehová es mi pastor; nada me faltará.', 'Salmo 23, 1'],
-  ['Bienaventurados los pacificadores: porque ellos serán llamados hijos de Dios.', 'Mateo 5, 9'],
-  ['Estad quietos, y conoced que yo soy Dios.', 'Salmo 46, 10'],
-  ['Venid á mí todos los que estáis trabajados y cargados, que yo os haré descansar.', 'Mateo 11, 28'],
-  ['Aunque ande en valle de sombra de muerte, no temeré mal alguno; porque tú estarás conmigo.', 'Salmo 23, 4'],
-  ['Y sobre todas estas cosas vestíos de caridad, la cual es el vínculo de la perfección.', 'Colosenses 3, 14'],
-  ['Lámpara es á mis pies tu palabra, y lumbrera á mi camino.', 'Salmo 119, 105']
-];
-
 // Plegarias para situaciones concretas redactadas para Ora.
 const everydayPrayers = [
   ['amor', 'Amor y amistad', [
-    ['Para aprender a amar', 'Jesús, enséñame a amar como tú. Dame paciencia para escuchar, generosidad para servir y humildad para pedir perdón. Que hoy alguien se sienta querido por un gesto mío. Amén.'],
+    ['Para aprender a amar', 'Jesús, enséñame a amar como tú. Dame paciencia para escuchar, generosidad para servir y humildad para pedir perdón. Que hoy alguien se sienta querido por un gesto mío.\n\nPerdóname por las veces en que he querido tener razón sin escuchar a quien tenía delante. Enséñame a mirar a cada persona con la misericordia con que tú me miras.\n\nTe presento a quien hoy me cuesta querer. Dame la gracia de empezar por un gesto posible: escuchar con paciencia, pedir perdón si he herido o ayudar sin esperar que me den las gracias. Amén.'],
     ['Por mis amigos', 'Señor, gracias por mis amigos. Acompáñalos en lo que viven y ayúdame a alegrarme con ellos y a estar cerca cuando me necesiten. Amén.'],
     ['Cuando alguien me ha herido', 'Jesús, tú sabes lo que me duele. Dame luz para poner límites justos y la gracia de caminar hacia el perdón. Sana mi corazón y guíame hacia la paz. Amén.']
   ]],
   ['enfermos', 'Por los enfermos', [
-    ['Por una persona enferma', 'Jesús, que te acercaste a los enfermos, acompaña a la persona que hoy te confío. Alivia su dolor, dale fortaleza y guía a quienes la atienden. Muéstrame cómo estar a su lado. Amén.'],
+    ['Por una persona enferma', 'Jesús, que te acercaste a los enfermos, acompaña a la persona que hoy te confío. Alivia su dolor, dale fortaleza y guía a quienes la atienden. Muéstrame cómo estar a su lado.\n\nTe presento también a su familia, sus miedos y el cansancio de quienes llevan tiempo a su lado. Que encuentren consuelo en tu presencia y manos dispuestas a ayudar.\n\nMaría, salud de los enfermos, ruega por esta persona. Enséñame a acompañarla con constancia, respetar su descanso y ofrecerle la ayuda que de verdad necesite. Amén.'],
     ['Por quienes cuidan', 'Padre, sostén a los que cuidan a un enfermo. Dales descanso, manos que los ayuden y paciencia para los días difíciles. Bendice su entrega. Amén.'],
     ['Antes de una operación', 'Señor, acompaña a quien va a entrar en el quirófano. Da serenidad a su familia y sabiduría al equipo médico. Que tu paz los sostenga durante la espera. Amén.']
   ]],
   ['jovenes', 'Por los jóvenes', [
-    ['Para encontrar mi camino', 'Jesús, tú conoces mis ilusiones y mis preguntas. Enséñame a reconocer mis dones y a ponerlos al servicio de los demás. Dame valor para dar el siguiente paso contigo. Amén.'],
+    ['Para encontrar mi camino', 'Jesús, tú conoces mis ilusiones y mis preguntas. Enséñame a reconocer mis dones y a ponerlos al servicio de los demás. Dame valor para dar el siguiente paso contigo.\n\nEspíritu Santo, dame sabiduría para distinguir lo que me atrae un momento de aquello que puede dar sentido a mi vida. Pon cerca de mí personas sinceras que sepan acompañarme y valor para pedirles consejo.\n\nSeñor, te entrego también mi miedo a equivocarme. Que aprenda a dar pasos pequeños con libertad y a volver a ti cuando pierda el rumbo. Amén.'],
     ['Ante la presión del grupo', 'Espíritu Santo, dame fuerza para elegir el bien cuando cueste. Que sepa decir que no con respeto y encontrar amigos con quienes pueda ser sincero. Amén.'],
     ['Por los jóvenes que se sienten solos', 'Jesús, acompaña a los jóvenes que sienten que nadie los entiende. Pon a su lado personas que sepan escucharlos. Abre mis ojos para acercarme a quien se queda solo. Amén.']
   ]],
   ['hermana', 'Por mi hermana', [
-    ['Por mi hermana', 'Señor, bendice a mi hermana y acompáñala en lo que hoy le preocupa. Gracias por su vida. Ayúdame a escucharla, respetar su camino y hacerle saber cuánto la quiero. Amén.'],
+    ['Por mi hermana', 'Señor, bendice a mi hermana y acompáñala en lo que hoy le preocupa. Gracias por su vida. Ayúdame a escucharla, respetar su camino y hacerle saber cuánto la quiero.\n\nJesús, tú conoces lo que mi hermana me cuenta y lo que guarda en silencio. Dale personas que la quieran bien, fortaleza cuando esté cansada y alegría para reconocer lo bueno de su vida.\n\nMaría, cuídala con cariño de madre. Ayúdame a ser para ella alguien con quien pueda hablar con confianza y a pedirle perdón cuando no la haya sabido escuchar. Amén.'],
     ['Cuando hemos discutido', 'Jesús, danos calma a mi hermana y a mí. Ayúdame a reconocer mi parte, a pedir perdón y a escuchar lo que ella tiene que decir. Abre entre nosotros un camino de paz. Amén.'],
     ['Por mi hermana cuando está lejos', 'Padre, acompaña a mi hermana allí donde esté. Cuida sus pasos y bendice a quienes la rodean. Que sepamos mantenernos cerca con gestos sencillos, aunque haya distancia. Amén.']
   ]],
   ['padres', 'Por mis padres', [
-    ['Para dar gracias por mis padres', 'Padre bueno, te doy gracias por la vida que recibí. Bendice a mis padres en sus trabajos y preocupaciones. Ayúdame a agradecer lo que hacen por mí y a cuidarlos como pueda. Amén.'],
+    ['Para dar gracias por mis padres', 'Padre bueno, te doy gracias por la vida que recibí. Bendice a mis padres en sus trabajos y preocupaciones. Ayúdame a agradecer lo que hacen por mí y a cuidarlos como pueda.\n\nTe confío sus cansancios, los sacrificios que quizá no he visto y las preocupaciones que les cuesta poner en palabras. Dales salud, descanso y personas con las que puedan compartir lo que llevan dentro.\n\nJesús, que viviste en un hogar con María y José, enséñame a querer a mis padres con hechos. Que sepa hablarles con respeto, ofrecerles mi ayuda y decirles a tiempo lo que agradezco. Amén.'],
     ['Cuando mis padres están preocupados', 'Señor, tú conoces lo que pesa en el corazón de mis padres. Dales el descanso y la ayuda que necesitan. Enséñame a acompañarlos con cariño y paciencia. Amén.'],
     ['Por mis padres difuntos', 'Padre misericordioso, recibe a mis padres en tu paz. Te doy gracias por lo que pude compartir con ellos y te confío lo que quedó pendiente. Que descansen en ti. Amén.']
   ]],
   ['matrimonio', 'Matrimonios', [
-    ['Por nuestro matrimonio', 'Jesús, bendice nuestra alianza. Danos ternura en lo cotidiano, paciencia en las diferencias y alegría para compartir la vida. Que sepamos renovar cada día el amor que nos prometimos. Amén.'],
+    ['Por nuestro matrimonio', 'Jesús, bendice nuestra alianza. Danos ternura en lo cotidiano, paciencia en las diferencias y alegría para compartir la vida. Que sepamos renovar cada día el amor que nos prometimos.\n\nAyúdanos a hacer memoria de lo que nos unió y a dar gracias por lo que hemos recibido en el sacramento del matrimonio. Enséñanos a hablar antes de que el silencio se convierta en distancia y a pedir perdón sin esperar a que el otro dé el primer paso.\n\nSagrada Familia de Nazaret, ruega por nuestro hogar. Que en nuestra mesa haya tiempo para escucharnos y que nuestro cariño nos haga más atentos a quien necesita compañía. Amén.'],
     ['En una crisis matrimonial', 'Señor, danos luz para hablar con verdad y escucharnos sin herirnos. Danos humildad para buscar ayuda, responsabilidad para reparar el daño y fortaleza para cuidar a nuestra familia. Amén.'],
     ['Por un matrimonio querido', 'Padre, bendice a este matrimonio que hoy te presento. Sostén su fidelidad, cuida su hogar y rodéalo de personas que lo acompañen en las alegrías y en las pruebas. Amén.']
   ]],
   ['noviazgo', 'Noviazgos', [
-    ['Para rezar en pareja', 'Jesús, acompaña nuestro noviazgo. Que sepamos querernos con libertad y respeto, hablar con sinceridad y cuidar el bien del otro. Ayúdanos a discernir nuestro camino contigo. Amén.'],
+    ['Para rezar en pareja', 'Jesús, acompaña nuestro noviazgo. Que sepamos querernos con libertad y respeto, hablar con sinceridad y cuidar el bien del otro. Ayúdanos a discernir nuestro camino contigo.\n\nEspíritu Santo, que podamos decir lo que sentimos sin miedo, respetar el ritmo del otro y hablar de nuestras diferencias con paciencia. Ayúdanos a encontrar tiempo para rezar juntos y a cuidar las amistades y responsabilidades de cada uno.\n\nSeñor, te confiamos nuestras decisiones. Danos libertad para preguntarnos qué camino nos propones y generosidad para buscar el bien de ambos. Amén.'],
     ['Para discernir una relación', 'Espíritu Santo, dame luz para mirar esta relación con honestidad. Ayúdame a reconocer lo que nos hace crecer y a tomar decisiones con libertad, respeto y paz. Amén.'],
     ['Después de una ruptura', 'Señor, recibe mi tristeza y lo bueno que viví. Dame paciencia para sanar y fuerza para cuidar mi corazón. Bendice también a la otra persona y guía nuestros pasos. Amén.']
   ]],
@@ -73,11 +62,11 @@ const everydayPrayers = [
   ]],
   ['estudios', 'Estudios y exámenes', [
     ['Antes de estudiar', 'Espíritu Santo, ilumina mi entendimiento. Ayúdame a concentrarme, organizar mi tiempo y perseverar cuando algo no salga. Que use lo que aprendo para servir a los demás. Amén.'],
-    ['Antes de un examen', 'Señor, calma mis nervios. Ayúdame a leer con atención, recordar lo que he estudiado y responder con honestidad. Pase lo que pase, recuérdame que tú me amas. Amén.'],
+    ['Antes de un examen', 'Señor, calma mis nervios. Ayúdame a leer con atención, recordar lo que he estudiado y responder con honestidad. Pase lo que pase, recuérdame que tú me amas.\n\nEspíritu Santo, ayúdame a empezar por lo que sé y a tomarme un momento de calma cuando me bloquee. Dale serenidad también a mis compañeros y justicia a quienes evalúan nuestro trabajo.\n\nTe ofrezco las horas que he dedicado a prepararme. Dame humildad para aceptar el resultado, aprender de mis errores y volver a intentarlo si hace falta. Amén.'],
     ['Después de un mal resultado', 'Jesús, te entrego mi decepción. Dame claridad para aprender de mis errores, humildad para pedir ayuda y ánimo para volver a intentarlo. Amén.']
   ]],
   ['salud', 'Mi salud', [
-    ['Por mi salud', 'Señor, gracias por mi cuerpo y por la vida. Ayúdame a cuidarme, a descansar y a pedir ayuda cuando la necesite. Sostén mi esperanza en los días de enfermedad. Amén.'],
+    ['Por mi salud', 'Señor, gracias por mi cuerpo y por la vida. Ayúdame a cuidarme, a descansar y a pedir ayuda cuando la necesite. Sostén mi esperanza en los días de enfermedad.\n\nTe entrego lo que de mi salud puedo cuidar y lo que queda fuera de mis manos. Dame humildad para seguir los cuidados que necesito y paciencia cuando la mejoría llegue despacio.\n\nBendice a quienes me cuidan y a quienes están pasando por una enfermedad. Que pueda reconocer tu compañía en los pequeños gestos de ayuda y dar gracias por ellos. Amén.'],
     ['Mientras espero un diagnóstico', 'Jesús, acompáñame en esta espera. Dame calma para vivir el día de hoy y claridad para preguntar lo que necesito saber. Bendice a quienes me atienden. Amén.'],
     ['En la recuperación', 'Padre, dame paciencia para respetar mi ritmo. Gracias por las personas que me ayudan. Que pueda reconocer los pequeños avances y aceptar el descanso que necesito. Amén.']
   ]],
@@ -113,7 +102,7 @@ const everydayPrayers = [
     ['Al terminar el día', 'Gracias, Señor, por las personas y los gestos que hoy me han sostenido. Enséñame a reconocer tus dones y a responder mañana con generosidad. Amén.']
   ]],
   ['duelo', 'Duelo y difuntos', [
-    ['Por un ser querido fallecido', 'Padre misericordioso, recibe en tu luz a la persona que hoy recuerdo. Gracias por su vida y por lo que compartimos. Concédele el descanso eterno y sostén a quienes la echamos de menos. Amén.'],
+    ['Por un ser querido fallecido', 'Padre misericordioso, recibe en tu luz a la persona que hoy recuerdo. Gracias por su vida y por lo que compartimos. Concédele el descanso eterno y sostén a quienes la echamos de menos.\n\nJesús resucitado, te confío los recuerdos que me hacen sonreír y los que todavía me cuesta mirar. Sostén mi esperanza cuando sienta su ausencia y ayúdame a recordar con gratitud lo que su vida nos dejó.\n\nDale, Señor, el descanso eterno y brille para esta persona la luz perpetua. Que descanse en paz. Amén.'],
     ['En el aniversario de una pérdida', 'Jesús, esta fecha me trae recuerdos y tristeza. Acompáñame a agradecer lo vivido y a llorar lo que extraño. Que la esperanza de la resurrección me sostenga. Amén.'],
     ['Por quien está de duelo', 'Señor, acompaña a quien acaba de perder a alguien querido. Dale personas que sepan estar a su lado con paciencia. Muéstrame un gesto concreto con el que pueda ayudarle. Amén.']
   ]],

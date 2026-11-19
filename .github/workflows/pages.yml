@@ -26,7 +26,7 @@ jobs:
       - name: Preparar archivos públicos
         run: |
           mkdir _site
-          cp index.html style.css app.js prayers.js sw.js manifest.webmanifest altar.webp _site/
+          cp index.html style.css app.js prayers.js bible.js sw.js manifest.webmanifest altar.webp _site/
           cp -r assets _site/
       - uses: actions/upload-pages-artifact@v3
         with:

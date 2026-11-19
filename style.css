@@ -22,7 +22,7 @@ nav a:hover,nav a[aria-current]{background:#25272c;color:var(--gold)}
 nav i[data-icon]{width:17px;height:17px}
 .icon-button{background:#1b2330;border:1px solid var(--line);border-radius:10px;display:grid;place-items:center;min-width:44px;min-height:44px;padding:8px;color:var(--muted)}
 .icon-button:hover,.secondary:hover{border-color:var(--gold);color:var(--gold)}
-main{padding-top:35px}
+main{padding-top:35px;padding-bottom:24px}
 h1,h2,p,blockquote{margin:0}
 h1{font:500 clamp(48px,6vw,70px)/1.05 var(--serif);letter-spacing:-.05em}
 h1 span{color:var(--gold)}
@@ -80,7 +80,7 @@ dialog::backdrop{background:#050910c9}
 .dialog-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}
 #reminder-status{margin-top:12px}
 .toast{position:fixed;right:16px;bottom:16px;max-width:calc(100% - 32px);z-index:2;color:#241b15;background:var(--gold);border-radius:10px;padding:12px 16px;font-weight:650}
-@media(max-width:760px){
+@media(max-width:850px){
 .shell{width:calc(100% - 32px)}.top-inner{min-height:64px}.brand small{display:none}
 nav{position:fixed;z-index:1;bottom:0;left:0;right:0;justify-content:center;gap:0;background:#111722;border-top:1px solid var(--line);padding:4px 4px max(4px,env(safe-area-inset-bottom))}
 nav a{justify-content:center;flex:1;max-width:150px;flex-direction:column;gap:3px;font-size:11px;padding:6px 3px;min-height:48px}
@@ -123,3 +123,18 @@ main{padding-top:24px;padding-bottom:calc(62px + env(safe-area-inset-bottom))}.d
   #prayer-topics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
   #prayer-topics button{padding-inline:6px}
 }
+
+.bible-daily{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-bottom:14px}
+.bible-daily .text-link{margin-top:8px}
+.bible-study{margin-bottom:14px}
+.study-questions{margin:18px 0}
+.study-questions dt{color:var(--gold);font-weight:700}
+.study-questions dd{margin:3px 0 12px}
+#emergency-passages{display:grid;gap:7px}
+#emergency-passages details{background:#1c2431;border:1px solid var(--line);border-radius:9px;padding:0 12px}
+#emergency-passages summary{cursor:pointer;padding:10px 0;min-height:44px;font-weight:650}
+#emergency-passages details[open]{padding-bottom:12px}
+#emergency-passages .reading{margin:4px 0 6px}
+.passage-context{margin:8px 0 0;color:var(--muted)}
+#vulgate-source{text-decoration:underline}
+@media(max-width:600px){.bible-daily{grid-template-columns:1fr}}

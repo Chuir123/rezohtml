@@ -18,7 +18,7 @@ En GitHub, activa **Settings → Pages → Build and deployment → Source → G
 
 Para probar en el ordenador, ejecuta `python3 -m http.server 8000` desde esta carpeta y abre `http://localhost:8000`. También puedes descargar el código con **Code → Download ZIP**. No hay dependencias de ejecución ni compilación.
 
-Las oraciones son fórmulas católicas tradicionales en español. Las citas para la portada proceden de Reina-Valera 1909, de dominio público. La guía del examen de conciencia es una pauta breve redactada para Ora.
+Las oraciones son fórmulas católicas tradicionales en español. La guía del examen de conciencia es una pauta breve redactada para Ora.
 
 ## Racha de oración
 
@@ -27,3 +27,7 @@ En Inicio puedes marcar que has rezado hoy. Completar un temporizador de cuenta 
 ## Biblioteca de oraciones
 
 En **Oraciones** puedes buscar por título o tema y elegir un tema del submenú. Además de las fórmulas tradicionales, la biblioteca incluye plegarias redactadas para Ora sobre la familia, las relaciones, la salud, los estudios, el viaje y otros momentos cotidianos. La biblioteca está disponible sin conexión después de la primera visita.
+
+## Biblia católica
+
+La pestaña **Biblia** reúne una selección de citas breves traducidas para Ora a partir de la Nova Vulgata, con contexto, una pregunta para meditar y una lista de versículos por situaciones. El Evangelio completo y el santoral se consultan en Vatican News y requieren conexión. Ora incluye algunas referencias del leccionario y celebraciones para consultar de un vistazo.

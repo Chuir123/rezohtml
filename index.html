@@ -9,8 +9,8 @@
 <link rel="manifest" href="./manifest.webmanifest">
 <link rel="icon" href="./assets/icon-192.png">
 <link rel="apple-touch-icon" href="./assets/icon-192.png">
-<link rel="stylesheet" href="./style.css?v=4">
-<script type="module" src="./app.js?v=4"></script>
+<link rel="stylesheet" href="./style.css?v=5">
+<script type="module" src="./app.js?v=5"></script>
 </head>
 <body>
 <header class="top"><div class="shell top-inner">
@@ -18,6 +18,7 @@
 <nav aria-label="Navegación principal">
 <a href="#inicio" data-nav><i data-icon="home"></i>Inicio</a>
 <a href="#oraciones" data-nav><i data-icon="book"></i>Oraciones</a>
+<a href="#biblia" data-nav><i data-icon="scripture"></i>Biblia</a>
 <a href="#rosario" data-nav><i data-icon="rosary"></i>Rosario</a>
 <a href="#intenciones" data-nav><i data-icon="heart"></i>Intenciones</a>
 </nav>
@@ -31,8 +32,9 @@
 <section class="hero" aria-labelledby="verse-title">
 <div>
 <p class="eyebrow"><i data-icon="spark"></i><span id="verse-title">PALABRA PARA HOY</span></p>
-<blockquote id="verse">«Estad quietos, y conoced que yo soy Dios».</blockquote>
-<p class="reference" id="verse-ref">Salmo 46, 10</p>
+<blockquote id="verse"></blockquote>
+<p class="reference" id="verse-ref"></p>
+<a class="text-link" href="#biblia">Meditar este versículo <i data-icon="arrow"></i></a>
 </div>
 </section>
 <div class="dashboard">
@@ -74,6 +76,33 @@
 <div class="prayer-list" id="library"></div>
 </section>
 </section>
+<section id="biblia" data-page hidden>
+<h1>Biblia<span>.</span></h1>
+<p class="intro">Reza y estudia con la Sagrada Escritura de la Iglesia católica.</p>
+<div class="bible-daily">
+<section class="card" aria-labelledby="gospel-title">
+<div class="card-heading"><span class="tile-icon gold" data-icon="book"></span><div><h2 id="gospel-title">Evangelio del día</h2><p id="gospel-reference"></p></div></div>
+<a class="text-link" id="gospel-link">Leer el Evangelio en Vatican News <i data-icon="arrow"></i></a>
+</section>
+<section class="card" aria-labelledby="saints-title">
+<div class="card-heading"><span class="tile-icon blue" data-icon="cross"></span><div><h2 id="saints-title">Santoral del día</h2><p id="saint-name"></p></div></div>
+<a class="text-link" id="saints-link">Consultar el santoral en Vatican News <i data-icon="arrow"></i></a>
+</section>
+</div>
+<section class="card bible-study" aria-labelledby="study-title">
+<h2 id="study-title">Versículo del día</h2>
+<blockquote class="reading" id="study-verse"></blockquote>
+<p class="reference" id="study-reference"></p>
+<dl class="study-questions"><dt>Contexto</dt><dd id="study-context"></dd><dt>Para meditar</dt><dd id="study-question"></dd></dl>
+<a class="text-link" id="bible-source">Abrir la Biblia de la Conferencia Episcopal Española <i data-icon="arrow"></i></a>
+</section>
+<section class="card bible-study" aria-labelledby="emergency-title">
+<h2 id="emergency-title">Versículos de emergencia</h2>
+<p class="muted">Elige lo que estás viviendo para encontrar un pasaje al que acudir.</p>
+<div id="emergency-passages"></div>
+<p class="muted">Citas breves traducidas para Ora a partir de la <a id="vulgate-source">Nova Vulgata</a>.</p>
+</section>
+</section>
 <section id="rosario" data-page hidden>
 <h1>Santo Rosario<span>.</span></h1><p class="intro">Medita los misterios y avanza cuenta a cuenta.</p>
 <div class="card interior" id="rosary-card">
@@ -87,7 +116,6 @@
 <h1>Mis intenciones<span>.</span></h1><p class="intro">Ten presentes a las personas y necesidades por las que quieres rezar.</p>
 <div class="card interior"><form id="intention-form"><label for="intention">Nueva intención</label><textarea id="intention" maxlength="400" rows="3" required placeholder="Hoy quiero rezar por…"></textarea><button class="primary">Guardar intención</button></form><ul id="intentions" class="intention-list"></ul><p class="muted">Tus intenciones se guardan en este dispositivo.</p></div>
 </section>
-<footer><button class="text-link" id="install"><i data-icon="phone"></i> Instalar en mi dispositivo</button></footer>
 </main>
 <dialog id="prayer-dialog" aria-labelledby="prayer-title"><div class="dialog-heading"><h2 id="prayer-title"></h2><form method="dialog"><button class="icon-button" aria-label="Cerrar"><i data-icon="close"></i></button></form></div><div class="reading" id="prayer-text"></div></dialog>
 <dialog id="reminder-dialog" aria-labelledby="reminder-title"><div class="dialog-heading"><h2 id="reminder-title">Recordatorio diario</h2><form method="dialog"><button class="icon-button" aria-label="Cerrar"><i data-icon="close"></i></button></form></div>
@@ -95,7 +123,6 @@
 <p id="reminder-status" role="status"></p><p class="muted">Ora muestra un aviso mientras está abierta. Para recibirlo también con Ora cerrada, añade un evento diario a tu calendario y comprueba que tiene un aviso a la hora del evento.</p>
 <button class="secondary" id="export-reminder">Descargar evento de calendario</button>
 </dialog>
-<dialog id="install-dialog" aria-labelledby="install-title"><div class="dialog-heading"><h2 id="install-title">Instalar Ora</h2><form method="dialog"><button class="icon-button" aria-label="Cerrar"><i data-icon="close"></i></button></form></div><p>En iPhone o iPad, abre Ora en Safari, toca <strong>Compartir</strong> y elige <strong>Añadir a pantalla de inicio</strong>. En otros dispositivos, busca <strong>Instalar</strong> o <strong>Añadir a pantalla de inicio</strong> en el menú del navegador.</p><p class="muted">Después de la primera visita, puedes abrir Ora sin conexión.</p></dialog>
 <aside id="toast" class="toast" role="status" hidden></aside>
 </body>
 </html>

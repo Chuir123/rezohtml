@@ -1,4 +1,5 @@
-import { prayers, mysteries, verses, prayerTopics } from './prayers.js?v=4';
+import { prayers, mysteries, prayerTopics } from './prayers.js?v=5';
+import { passages, ministryLinks, gospelReferences, saintHighlights } from './bible.js?v=5';
 
 const $ = (selector) => document.querySelector(selector);
 const icons = {
@@ -19,7 +20,7 @@ const icons = {
   play: '<path d="m8 5 12 7-12 7z" fill="currentColor"/>',
   pause: '<path d="M9 5v14m6-14v14" stroke-width="3"/>',
   close: '<path d="m6 6 12 12M18 6 6 18"/>',
-  phone: '<rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/>'
+  scripture: '<path d="M5 4h14v15H7a2 2 0 0 0 0 4h12M5 21V6a2 2 0 0 1 2-2m6 3v8m-3-5h6"/>'
 };
 function icon(name) {
   return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + icons[name] + '</svg>';
@@ -120,14 +121,47 @@ window.addEventListener('storage', (event) => {
   if (event.key === 'ora.prayerDays' || event.key === null) renderStreak(new Date());
 });
 
+for (const [selector, url] of Object.entries({
+  '#gospel-link': ministryLinks.gospel,
+  '#saints-link': ministryLinks.saints,
+  '#bible-source': ministryLinks.bible,
+  '#vulgate-source': ministryLinks.vulgate
+})) {
+  const link = $(selector);
+  link.href = url;
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+}
+
+for (const [title, reference, text, context] of passages) {
+  const item = document.createElement('details');
+  const heading = document.createElement('summary');
+  const verse = document.createElement('blockquote');
+  const citation = document.createElement('p');
+  const note = document.createElement('p');
+  heading.textContent = title;
+  verse.className = 'reading';
+  verse.textContent = '«' + text + '»';
+  citation.className = 'reference';
+  citation.textContent = reference;
+  note.className = 'passage-context';
+  note.textContent = context;
+  item.append(heading, verse, citation, note);
+  $('#emergency-passages').append(item);
+}
+
 function renderDay(now) {
   const day = localDate(now);
   if ($('#today').dateTime === day) return;
   $('#today').dateTime = day;
   $('#today').textContent = dateFormat.format(now);
-  const [verse, reference] = verses[now.getDay()];
-  $('#verse').textContent = '«' + verse + '»';
-  $('#verse-ref').textContent = reference;
+  const [, reference, verse, context, question] = passages[dayNumber(day) % passages.length];
+  $('#verse').textContent = $('#study-verse').textContent = '«' + verse + '»';
+  $('#verse-ref').textContent = $('#study-reference').textContent = reference;
+  $('#study-context').textContent = context;
+  $('#study-question').textContent = question;
+  $('#gospel-reference').textContent = gospelReferences[day] ?? 'Lectura de la misa de hoy';
+  $('#saint-name').textContent = saintHighlights[day.slice(5)] ?? 'Santos y beatos de hoy';
   renderStreak(now);
 }
 
@@ -146,15 +180,15 @@ function renderTimer() {
     elapsed = seconds = duration;
     startedAt = null;
     completed = true;
-    toast('Ha terminado tu tiempo de oración.');
+    toast('Ha terminado el tiempo que elegiste para rezar.');
   }
   const shown = duration ? Math.ceil(Math.max(0, duration - seconds)) : Math.floor(seconds);
   clock.value = [Math.floor(shown / 60), shown % 60].map((part) => String(part).padStart(2, '0')).join(':');
   $('#timer-face').style.setProperty('--progress', (duration ? Math.min(1, seconds / duration) * 360 : 0) + 'deg');
   const running = startedAt !== null;
-  const status = running ? 'EN ORACIÓN' : completed ? 'TIEMPO COMPLETADO' : elapsed ? 'EN PAUSA' : 'LISTO PARA EMPEZAR';
+  const status = running ? 'REZANDO' : completed ? 'TIEMPO COMPLETADO' : elapsed ? 'EN PAUSA' : 'LISTO PARA EMPEZAR';
   if ($('#timer-status').textContent !== status) $('#timer-status').textContent = status;
-  const label = running ? 'Pausar' : completed ? 'Volver a empezar' : elapsed ? 'Continuar' : 'Comenzar oración';
+  const label = running ? 'Pausar' : completed ? 'Volver a empezar' : elapsed ? 'Continuar' : 'Empezar a rezar';
   if (toggle.textContent !== label) toggle.innerHTML = icon(running ? 'pause' : 'play') + label;
 }
 function resetTimer() {
@@ -411,19 +445,6 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-let installPrompt;
-window.addEventListener('beforeinstallprompt', (event) => {
-  event.preventDefault();
-  installPrompt = event;
-});
-$('#install').addEventListener('click', async () => {
-  if (!installPrompt) {
-    $('#install-dialog').showModal();
-    return;
-  }
-  await installPrompt.prompt();
-  installPrompt = undefined;
-});
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./sw.js').catch((error) => console.warn('Ora sin conexión:', error));
 }
