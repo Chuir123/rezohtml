@@ -1,6 +1,7 @@
-const CACHE = 'ora-v5';
-const FILES = ['./', './index.html', './style.css?v=5', './app.js?v=5', './prayers.js?v=5', './bible.js?v=5', './altar.webp',
-  './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png'];
+const CACHE = 'ora-v6';
+const FILES = ['./', './index.html', './style.css?v=6', './app.js?v=5', './prayers.js?v=5', './bible.js?v=5', './altar.webp',
+  './manifest.webmanifest', './assets/icon-192.png', './assets/icon-512.png',
+  './assets/fonts/newsreader-regular.woff2', './assets/fonts/newsreader-italic.woff2'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(FILES)));
